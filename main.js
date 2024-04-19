@@ -25,17 +25,35 @@ function loadingBar() {
     }
     sleep(3000)
     .then(() => document.getElementById('loadingScreen').style.cssText = "display: none; visibility: hidden;")
-    .then(() => document.getElementById('story').style.display='block')
-    .then(() => start())
+    .then(() => document.getElementById('story').style.display = 'block')
+    .then(() => document.getElementById('title').style.display = 'none')
+    .then(() => part1())
 }
 
-function start() {
-    var story = document.getElementById('story__Stuff')
-    fetch("Stories/start.txt")
+function control(part){
+    document.getElementById('story__Choose').style.display = 'block';
+    let currentPart = part + '.txt';
+    fetch("Stories/" + currentPart)
     .then((response) => response.text())
-    .then((text) => story.innerHTML = text)
+    .then((text) => currentPartArray = text.split("|"))
+    .then(() => console.log(currentPartArray))
+    .then(() => document.getElementById('part__Title').innerHTML = currentPartArray[0])
+    .then(() => document.getElementById('story__OptionOne').innerHTML = currentPartArray[1])
+    .then(() => document.getElementById('story__OptionTwo').innerHTML = currentPartArray[2])
+    .then(() => document.getElementById('story__OptionThree').innerHTML = currentPartArray[3])
+    .then(() => document.getElementById('story__OptionFour').innerHTML = currentPartArray[4])
+    .then(() => document.getElementById('story__Stuff').innerHTML = currentPartArray[5])
 }
 
+
+function part1() {
+    part = 'part1'
+    control(part)
+}
+
+function choice1() {
+    document.getElementById('story__Choose').style.display = 'block';
+}
 
 
 
@@ -58,7 +76,4 @@ function setOptionFour () {
 }
 
 function partOne () {
-    if (option = 1){
-        document.getElementById("story__Stuff").innerHTML = "You chose option 1"
-    }
 }

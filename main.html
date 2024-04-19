@@ -7,7 +7,8 @@
         <title>Jason and Medea CYOA</title>
     </head>
     <body>
-        <h1 id="title">Jason and Medea</h1>
+        <h1 class="title" id="title">Jason and Medea</h1>
+        <!-- Launch Page -->
         <div id="launchPage" href="launch__StartButton">
             <div id="collumns">
                 <img id="collumn1" src="Images/collumns.png">
@@ -20,7 +21,7 @@
             </div>
             <button id="launchPage__StartButton" onclick="hideLaunchPage()">I AM READY!</button>
         </div>
-
+        <!-- Loading Screen -->
         <div id="loadingScreen">
             <img id="loadingScreen__Image" src="images/jasonAndMedea.jpg">
             <div id="progressBar">
@@ -30,12 +31,16 @@
                 </div>
             </div>
         </div>
+        <!-- Story Stuff-->
         <div id="story">
             <p id="story__Stuff"></p>
-            <img src="Images/scroll.png">
+            <img id="story__Scroll" src="Images/scroll.png">
+            <h1 id="part__Title"></h1>
             <div id="story__Choose">
-                <button id="story__OptionOne" type="button" onclick="setOptionOne()">Option 1</button>
-                <button id="story__OptionTwo" type="button" onclick="setOptionTwo()">Option 2</button>
+                <button class="story__Button" id="story__OptionOne" type="button" onclick="setOptionOne()">Option 1</button>
+                <button class="story__Button" id="story__OptionTwo" type="button" onclick="setOptionTwo()">Option 2</button>
+                <button class="story__Button" id="story__OptionThree" type="button" onclick="setOptionThree()">Option 3</button>
+                <button class="story__Button" id="story__OptionFour" type="button" onclick="setOptionFour()">Option 4</button>
             </div>
         </div>
     </body>
