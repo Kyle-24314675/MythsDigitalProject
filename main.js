@@ -31,10 +31,8 @@ function loadingBar() {
 function start() {
     var story = document.getElementById('story__Stuff')
     fetch("Stories/start.txt")
-    .then((res) => res.story())
-    .then((story) => {
-        story.innerHTML(story)
-    })
+    .then((response) => response.text())
+    .then((text) => story.innerHTML(text))
     .then(()=> window.alert(story))
 }
 
