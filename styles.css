@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Jersey+25&family=Lobster&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    background-color: blanchedalmond;
+    overflow: hidden;
+}
+
+#title {
+    font-family: 'Lobster';
+    text-align: center;
+    font-size: 80px;
+    display:none;
+}
+
+/* --- Launch Page --- */
+#launchPage {
+    margin-left: 20px;
+    height: 100%;
+    background-color: transparent;
+}
+
+#launchPage__Title {
+    visibility: inherit;
+    font-family: 'Dancing Script';
+    font-size: 75px;
+    position: absolute;
+    background-color: transparent;
+    margin: 25px 200px 0px 150px;
+    text-align: center;
+}
+
+#launchPage__Info {
+    visibility: inherit;
+    font-family: 'Lobster';
+    position: absolute;
+    text-align: center;
+    background-color: transparent;
+    margin: 350px 200px 0px 150px;
+    color:grey;
+}
+
+#launchPage__Info__1 {
+    font-weight: 50;
+    background-color: transparent;
+}
+
+#launchPage__Info__2 {
+    font-weight: 50;
+    background-color: transparent;
+    margin-top: 150px;
+}
+
+    /* Button */
+
+#launchPage__StartButton {
+    visibility: inherit;
+    font-family: 'Jersey 25';
+    width: 65%;
+    height: 115px;
+    font-size: 100px;
+    text-align: center;
+    display: block;
+    margin: 600px auto 0px auto;
+    border-radius: 15px;
+    border-width: 10px;
+}
+
+#launchPage__StartButton:hover {
+    background-color: antiquewhite;
+    border-color:dimgray
+}
+
+    /* Collumns */
+
+#collumn1 {
+    position: absolute;
+    margin: -8px  0px 0px -75px;
+    height: 750px;
+    width: 300px;
+}
+
+#collumn2 {
+    position: absolute;
+    margin: -8px  0px 0px 1170px;
+    height: 750px;
+    width: 300px;
+}
+
+/* --- Loading Screen --- */
+#loadingScreen {
+    display: hidden;
+    visibility: hidden;
+}
+
+#loadingScreen__Image {
+    visibility: inherit;
+    height: 500px;
+    position: absolute;
+    display: hidden;
+    margin: 10px auto 0px 210px;
+    width: 70%;
+}
+
+#progressBar {
+    margin: 530px 50px 0px;
+}
+
+#progressBar__Border {
+    background-color: rgb(97, 144, 116);
+    border-radius: 100px;
+}
+#progressBar__Loader {
+    background-color: rgb(0, 180, 75);
+    height: 50px;
+    width: 0;
+    text-align: center;
+    font-size: 40px;
+}
+
+/* --- Story --- */
+#story {
+    display: none;
+}
+
+#story__Choose {
+    display: none;
+}

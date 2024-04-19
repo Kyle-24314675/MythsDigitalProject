@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!---->
+<html>
+    <head>
+        <script src="main.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <title>Jason and Medea CYOA</title>
+    </head>
+    <body>
+        <h1 id="title">Jason and Medea</h1>
+        <div id="launchPage" href="launch__StartButton">
+            <div id="collumns">
+                <img id="collumn1" src="Images/collumns.png">
+                <img id="collumn2" src="Images/collumns.png">
+            </div>
+            <h1 id="launchPage__Title">Welcome to a choose your own adventure based on the story of Jason and Medea in Greek Mythology!</h1>
+            <div id="launchPage__Info">
+                <h2 id="launchPage__Info__1">Throughout this adventure you will be asked to make choices that Jason and Medea would of had to make in the Myths. Are you going to make the same choices as them or are you going to take your own path?</h2>
+                <h2 id="launchPage__Info__2">I wish you luck. Are you ready to relive this Myth?</h2>
+            </div>
+            <button id="launchPage__StartButton" onclick="hideLaunchPage()">I AM READY!</button>
+        </div>
+
+        <div id="loadingScreen">
+            <img id="loadingScreen__Image" src="images/jasonAndMedea.jpg">
+            <div id="progressBar">
+                <h1 id="loading">Loading...</h1>
+                <div id="progressBar__Border">
+                    <div id="progressBar__Loader">0</div>
+                </div>
+            </div>
+        </div>
+        <div id="story">
+            <p id="story__Stuff">This is the main info</p>
+            <div id="story__Choose">
+                <button id="story__OptionOne" type="button" onclick="setOptionOne()">Option 1</button>
+                <button id="story__OptionTwo" type="button" onclick="setOptionTwo()">Option 2</button>
+            </div>
+        </div>
+    </body>
+</html>
