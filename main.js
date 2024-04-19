@@ -3,9 +3,9 @@ function sleep(ms) {
 }
 
 function hideLaunchPage() {
-    document.getElementById('launchPage').style.display='none';
+    document.getElementById('launchPage').style.display= 'none';
     document.getElementById('loadingScreen').style.cssText = "display: block; visibility: visible;";
-    document.getElementById('title').style.display='block';
+    document.getElementById('title').style.display = 'block';
     loadingBar()
 }
 
@@ -23,17 +23,17 @@ function loadingBar() {
         }
 
     }
-    sleep(3000).then(() =>
-    document.getElementById('loadingScreen').style.cssText = "display: none; visibility: hidden;").then(() => 
-    document.getElementById('story').style.display='block').then(() => start())
+    sleep(3000)
+    .then(() => document.getElementById('loadingScreen').style.cssText = "display: none; visibility: hidden;")
+    .then(() => document.getElementById('story').style.display='block')
+    .then(() => start())
 }
 
 function start() {
     var story = document.getElementById('story__Stuff')
     fetch("Stories/start.txt")
     .then((response) => response.text())
-    .then((text) => story.innerHTML(text))
-    .then(()=> window.alert(story))
+    .then((text) => story.innerHTML = text)
 }
 
 

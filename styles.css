@@ -79,14 +79,14 @@
 #collumn1 {
     position: absolute;
     margin: -8px  0px 0px -75px;
-    height: 750px;
+    height: 760px;
     width: 300px;
 }
 
 #collumn2 {
     position: absolute;
     margin: -8px  0px 0px 1170px;
-    height: 750px;
+    height: 760px;
     width: 300px;
 }
 
@@ -124,6 +124,14 @@
 /* --- Story --- */
 #story {
     display: none;
+    margin: 30px 30px 0px 40px;
+}
+
+#story__Stuff {
+    padding-left: 10px;
+    font-family: 'Lobster';
+    font-weight: 5px;
+    font-size: 20px;
 }
 
 #story__Choose {
