@@ -1,79 +1,73 @@
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-}
+};
 
 function hideLaunchPage() {
     document.getElementById('launchPage').style.display= 'none';
     document.getElementById('loadingScreen').style.cssText = "display: block; visibility: visible;";
     document.getElementById('title').style.display = 'block';
-    loadingBar()
-}
+    loadingBar();
+};
 
-function loadingBar() {
-    var loader = document.getElementById("progressBar__Loader")
+async function loadingBar() {
+    var loader = document.getElementById("progressBar__Loader");
     var width = 1;
     var id = setInterval(frame, 30);
+
     function frame() {
         if (width >= 100) {
             clearInterval(id);
         } else {
             width++;
-            loader.style.width = width + '%'
-            loader.innerHTML = width + '%'
+            loader.style.width = width + '%';
+            loader.innerHTML = width + '%';
+        }
+    };
+    await sleep(10);
+    
+    document.getElementById('loadingScreen').style.cssText = "display: none; visibility: hidden;";
+    document.getElementById('story').style.display = 'block';
+    document.getElementById('title').style.display = 'none';
+    control();
+};
+
+function control(){
+    document.getElementById('story__Choose').style.display = 'block';
+    let currentPart = document.getElementById('part__ID').innerHTML;
+    fetch("Stories/" + currentPart + '.txt')
+    .then(async (response) => {
+        const text = await response.text();
+        const currentPartArray = text.split("|");
+
+        document.getElementById('part__Title').innerHTML = currentPartArray[0];
+        
+        const options = [currentPartArray[1], currentPartArray[2], currentPartArray[3], currentPartArray[4]];
+        optionNames = ["One", "Two", "Three", "Four"]
+
+        for (let i = 0; i < options.length; i++) {
+            const optionElement = document.getElementById('story__Option' + optionNames[i]);
+            if (options[i] == "Zero") {
+                optionElement.classList.add('hidden');
+            } else {
+                optionElement.classList.remove('hidden');
+            }
+            optionElement.innerHTML = options[i]
         }
 
-    }
-    sleep(3000)
-    .then(() => document.getElementById('loadingScreen').style.cssText = "display: none; visibility: hidden;")
-    .then(() => document.getElementById('story').style.display = 'block')
-    .then(() => document.getElementById('title').style.display = 'none')
-    .then(() => part1())
-}
+        document.getElementById('story__Stuff').innerHTML = currentPartArray[5];
+    });
+};
+function setOption(option) {
+    let currentPart = document.getElementById('part__ID').innerHTML;
+    nextPart = currentPart + "-" + option;
+    fetch("Stories/" + nextPart + '.txt').then(async (response) => {
+        const text = await response.text();
+        console.log(text)
+        if (text.includes(`Cannot GET /Stories/${nextPart}`)) return control()
 
-function control(part){
-    document.getElementById('story__Choose').style.display = 'block';
-    let currentPart = part + '.txt';
-    fetch("Stories/" + currentPart)
-    .then((response) => response.text())
-    .then((text) => currentPartArray = text.split("|"))
-    .then(() => console.log(currentPartArray))
-    .then(() => document.getElementById('part__Title').innerHTML = currentPartArray[0])
-    .then(() => document.getElementById('story__OptionOne').innerHTML = currentPartArray[1])
-    .then(() => document.getElementById('story__OptionTwo').innerHTML = currentPartArray[2])
-    .then(() => document.getElementById('story__OptionThree').innerHTML = currentPartArray[3])
-    .then(() => document.getElementById('story__OptionFour').innerHTML = currentPartArray[4])
-    .then(() => document.getElementById('story__Stuff').innerHTML = currentPartArray[5])
-}
-
-
-function part1() {
-    part = 'part1'
-    control(part)
-}
-
-function choice1() {
-    document.getElementById('story__Choose').style.display = 'block';
-}
-
-
-
-
-function setOptionOne() {
-    var option = 1;
-    partOne ()
-}
-
-function setOptionTwo () {
-    var option = 2;
-}
-
-function setOptionTwo () {
-    var option = 3;
-}
-
-function setOptionFour () {
-    var option = 4;
-}
-
-function partOne () {
-}
+    
+        document.getElementById('part__ID').innerHTML = nextPart
+    
+        control();
+    })
+};

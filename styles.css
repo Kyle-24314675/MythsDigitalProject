@@ -67,7 +67,8 @@
 
 #launchPage__StartButton:hover {
     background-color: antiquewhite;
-    border-color:dimgray
+    border-color:dimgray;
+    cursor: pointer;
 }
     /* Collumns */
 
@@ -156,6 +157,13 @@
     padding: 2px 0px;
     font-size: 24px
 }
+.story__Button:hover{
+    cursor: pointer;
+}
 #story__OptionOne {
 
+}
+
+.hidden {
+    display: none;
 }
