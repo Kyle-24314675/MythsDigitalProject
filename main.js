@@ -28,7 +28,7 @@ async function loadingBar() {
     document.getElementById('loadingScreen').style.cssText = "display: none; visibility: hidden;";
     document.getElementById('story').style.display = 'block';
     document.getElementById('title').style.display = 'none';
-    control();
+    control()
 };
 
 function control(){
