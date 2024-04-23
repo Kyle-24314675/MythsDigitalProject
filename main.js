@@ -23,7 +23,7 @@ async function loadingBar() {
             loader.innerHTML = width + '%';
         }
     };
-    await sleep(10);
+    await sleep(3000);
     
     document.getElementById('loadingScreen').style.cssText = "display: none; visibility: hidden;";
     document.getElementById('story').style.display = 'block';
