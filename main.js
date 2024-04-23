@@ -28,6 +28,7 @@ async function loadingBar() {
     document.getElementById('loadingScreen').style.cssText = "display: none; visibility: hidden;";
     document.getElementById('story').style.display = 'block';
     document.getElementById('title').style.display = 'none';
+    document.getElementById('part__Title').style.display = 'block';
     control()
 };
 
@@ -54,6 +55,8 @@ function control(){
             optionElement.innerHTML = options[i]
         }
 
+        console.log(currentPartArray[0])
+        document.getElementById('part__Title').innerHTML = currentPartArray[0];
         document.getElementById('story__Stuff').innerHTML = currentPartArray[5];
     });
 };
