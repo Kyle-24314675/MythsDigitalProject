@@ -5,7 +5,7 @@
 * {
     margin: 0px;
     padding: 0px;
-    background-color: blanchedalmond;
+    background-color: rgb(255, 235, 205);
     overflow: hidden;
 }
 #title {
@@ -136,7 +136,7 @@
 
     /* Reading */
 #story__Stuff {
-    margin-right: 550px;
+    margin-right: 40%;
     position: absolute;
     padding-left: 10px;
     font-family: 'Lobster';
@@ -147,7 +147,6 @@
     overflow-y: visible;
     height: 500px;
 }
-
 ::-webkit-scrollbar{
     width: 8px;
 }
@@ -155,11 +154,10 @@
     background-color: rgb(139, 113, 81);
     border-radius: 7px;
 }
-
 #story__Scroll {
     margin: -140px 0px 0px -75px;
     height: 780px;
-    width: 1000px;
+    width: 70%;
     position: absolute;
     z-index: 1;
 }
@@ -184,9 +182,9 @@
 
 .story__Button:hover{
     cursor: pointer;
+    background-color: rgb(252, 239, 220);
 }
 
 .hidden {
     display: none;
 }
-
