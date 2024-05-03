@@ -1,4 +1,4 @@
-function sleep(ms) {
+  function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 };
 
@@ -61,7 +61,7 @@ function control(){
     });
 };
 function setOption(option) {
-    let currentPart = document.getElementById('part__ID').innerHTML;
+    let currentPart = document.getElementById('part__ID').innerHTML; 
     nextPart = currentPart + "-" + option;
     fetch("Stories/" + nextPart + '.txt').then(async (response) => {
         const text = await response.text();

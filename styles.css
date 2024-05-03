@@ -155,7 +155,7 @@
     border-radius: 7px;
 }
 #story__Scroll {
-    margin: -140px 0px 0px -75px;
+    margin: -140px 0px 0px -5.5%;
     height: 780px;
     width: 70%;
     position: absolute;
@@ -167,7 +167,7 @@
     z-index: 3;
     position: absolute;
     display: none;
-    margin: 200px 0px 0px 925px;
+    margin: 200px 0px 0px 62.5%;
 }
 .story__Button{
     z-index: 3;
