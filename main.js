@@ -4,8 +4,8 @@
 
 function hideLaunchPage() {
     document.getElementById('launchPage').style.display= 'none';
-    document.getElementById('loadingScreen').style.cssText = "display: block; visibility: visible;";
-    document.getElementById('title').style.display = 'block';
+    document.getElementById('loadingScreen').classList.remove('hidden')//style.cssText = "display: block; visibility: visible;";
+    document.getElementById('title').classList.remove('hidden')//style.display = 'block';
     loadingBar();
 };
 
@@ -23,17 +23,18 @@ async function loadingBar() {
             loader.innerHTML = width + '%';
         }
     };
+    // DW this definetly does something. dont look too deep into it
     await sleep(3000);
     
-    document.getElementById('loadingScreen').style.cssText = "display: none; visibility: hidden;";
-    document.getElementById('story').style.display = 'block';
-    document.getElementById('title').style.display = 'none';
-    document.getElementById('part__Title').style.display = 'block';
+    document.getElementById('loadingScreen').classList.add('hidden')//style.cssText = "display: none; visibility: hidden;";
+    document.getElementById('story').classList.remove('hidden')//style.display = 'block';
+    document.getElementById('title').classList.add('hidden')//style.display = 'none';
+    //document.getElementById('part__Title').classList.remove('hidden')//style.display = 'block';
     control()
 };
 
 function control(){
-    document.getElementById('story__Choose').style.display = 'block';
+    document.getElementById('story__Choose').classList.remove('hidden')//style.display = 'block';
     let currentPart = document.getElementById('part__ID').innerHTML;
     fetch("Stories/" + currentPart + '.txt')
     .then(async (response) => {
@@ -55,22 +56,47 @@ function control(){
             optionElement.innerHTML = options[i]
         }
 
-        console.log(currentPartArray[0])
+        //console.log(currentPartArray[0])
         document.getElementById('part__Title').innerHTML = currentPartArray[0];
         document.getElementById('story__Stuff').innerHTML = currentPartArray[5];
     });
 };
-function setOption(option) {
+async function setOption(option) {
     let currentPart = document.getElementById('part__ID').innerHTML; 
-    nextPart = currentPart + "-" + option;
+    let nextPart = currentPart + "-" + option;
+    
+    await checkPart(nextPart)
+
     fetch("Stories/" + nextPart + '.txt').then(async (response) => {
         const text = await response.text();
-        console.log(text)
+        //console.log(text)
         if (text.includes(`Cannot GET /Stories/${nextPart}`)) return control()
 
-    
         document.getElementById('part__ID').innerHTML = nextPart
     
         control();
     })
 };
+
+async function checkPart(nextPart){
+    if (nextPart == "part_1-1-1-1"){
+        console.log('working')
+        await chooseArgonauts()
+        await(5000)
+    }
+
+}
+
+async function chooseArgonauts(){
+    document.getElementById("story__Choose").style.display = 'hidden';
+    document.getElementById("chooseArgonauts").classList.remove('hidden')
+    await argonautsSubmitted(0)
+    return
+}
+
+async function argonautsSubmitted(x){
+    console.log('hello')
+    if (x == 1){
+    return
+}
+}

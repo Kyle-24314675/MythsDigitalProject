@@ -7,7 +7,7 @@
         <title>Jason and Medea CYOA</title>
     </head>
     <body>
-        <h1 class="title" id="title">Jason and Medea</h1>
+        <h1 class="hidden" id="title">Jason and Medea</h1>
         <!-- Launch Page -->
         <div id="launchPage" href="launch__StartButton">
             <div id="collumns">
@@ -22,7 +22,7 @@
             <button id="launchPage__StartButton" onclick="hideLaunchPage()">I AM READY!</button>
         </div>
         <!-- Loading Screen -->
-        <div id="loadingScreen">
+        <div id="loadingScreen" class="hidden">
             <img id="loadingScreen__Image" src="images/jasonAndMedea.jpg">
             <div id="progressBar">
                 <h1 id="loading">Loading...</h1>
@@ -33,17 +33,31 @@
         </div>
         <!-- Story Stuff -->
         <div id="part__ID" class="hidden">part_1</div>
-        <div id="story">
+        <div id="story" class="hidden">
             <div class = "story">>
                 <p id="story__Stuff"></p>
             </div>
             <img id="story__Scroll" src="Images/scroll.png">
             <h1 id="part__Title"></h1>
-            <div id="story__Choose">
+            <div id="story__Choose" class="hidden">
                 <button class="story__Button" id="story__OptionOne" type="button" onclick="setOption(1)">Option 1</button>
                 <button class="story__Button" id="story__OptionTwo" type="button" onclick="setOption(2)">Option 2</button>
                 <button class="story__Button" id="story__OptionThree" type="button" onclick="setOption(3)">Option 3</button>
                 <button class="story__Button" id="story__OptionFour" type="button" onclick="setOption(4)">Option 4</button>
+            </div>
+            <!-- Choosing the Argonauts -->
+            <div id="chooseArgonauts" class="hidden">
+                <input type="checkbox" id="box1" name="heracles" value="1">
+                <label for="heracles">Heracles (Strongest Man)</label>
+                <input type="checkbox" id="box2" name="orpheus" value="1">
+                <label for="orpheus">Orpheus ()</label>
+                <input type="checkbox" id="box3" name="calais" value="1">
+                <label for="calais">Calais</label>
+                <input type="checkbox" id="box4" name="zetes" value="1">
+                <label for="zetes">Zetes</label>
+                <input type="checkbox" id="box5" name="daedalus" value="1">
+                <label for="daedalus">Daedalus</label>
+                <button id="argonautsSubmit" type="button" onclick="argonautsSubmitted(1)">Submit</button>
             </div>
         </div>
     </body>

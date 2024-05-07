@@ -12,7 +12,6 @@
     font-family: 'Lobster';
     text-align: center;
     font-size: 80px;
-    display:none;
 }
 
 
@@ -86,10 +85,10 @@
 }
 
 /* --- Loading Screen --- */
-#loadingScreen {
+/*#loadingScreen {
     display: hidden;
     visibility: hidden;
-}
+}*/
 #loadingScreen__Image {
     visibility: inherit;
     height: 500px;
@@ -117,7 +116,6 @@
 
 /* --- Story --- */
 #story {
-    display: none;
     margin: 120px 0px 0px 35px;
 }
 
@@ -146,6 +144,7 @@
     background-color: transparent;
     overflow-y: visible;
     height: 500px;
+    color:rgb(68, 68, 68);
 }
 ::-webkit-scrollbar{
     width: 8px;
@@ -166,7 +165,6 @@
 #story__Choose {
     z-index: 3;
     position: absolute;
-    display: none;
     margin: 200px 0px 0px 62.5%;
 }
 .story__Button{
@@ -187,4 +185,8 @@
 
 .hidden {
     display: none;
+}
+
+#chooseArgonauts{
+    margin: 0 0 0 80%
 }
