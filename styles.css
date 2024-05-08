@@ -23,6 +23,7 @@
     margin-left: 20px;
     height: 100%;
     background-color: transparent;
+    display:block;
 }
 #launchPage__Title {
     visibility: inherit;
@@ -192,12 +193,14 @@
     font-size: 24px;
     border-color: black;
     border: inset;
-    background-color: rgb(217, 207, 193);
+    background-color: rgb(252, 239, 220);;
+    pointer-events:none;
+    opacity: 70%;
 }
 
-.story__Button__Disable{
+.story__Button__Disable:hover{
     cursor:not-allowed;
-    background-color: rgb(252, 239, 220);
+    
 }
 
 
@@ -209,4 +212,48 @@
 }
 .chooseArgonauts__Labels{
     font-size: 290%;
+}
+
+    /* CPS Test */
+#cps__Start{
+    width:70%;
+    height:900px;
+    background-color: transparent;
+    background-image: url('Images/CPSbutton.png');
+    background-size: 100%;
+    border:none;
+    margin-top: -19%;
+    margin-left: 13%;
+    position: absolute;
+    z-index: 3;
+    opacity: 10%;
+    font-size:800%;
+    color:red;
+}
+
+#cps__Test{
+    width:70%;
+    height:900px;
+    background-color: transparent;
+    background-image: url('Images/CPSbutton.png');
+    background-size: 100%;
+    border:none;
+    margin-top: -19%;
+    margin-left: 13%;
+    position: absolute;
+}
+
+#cps__Test:active{
+    background-image: url('Images/CPSbuttonPressed.png');
+}
+
+#CPSShade{
+    background-color:black;
+    width: 5000px;
+    height: 5000px;
+    position:absolute;
+    z-index: 2;
+    opacity: 80%;
+    margin-left:-50%;
+    margin-top:-50%;
 }

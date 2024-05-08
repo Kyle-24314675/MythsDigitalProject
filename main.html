@@ -14,12 +14,14 @@
                 <img id="collumn1" src="Images/collumns.png">
                 <img id="collumn2" src="Images/collumns.png">
             </div>
-            <h1 id="launchPage__Title">Welcome to a choose your own adventure based on the story of Jason and Medea in Greek Mythology!</h1>
-            <div id="launchPage__Info">
-                <h2 id="launchPage__Info__1">Throughout this adventure you will be asked to make choices that Jason and Medea would of had to make in the Myths. Are you going to make the same choices as them or are you going to take your own path?</h2>
-                <h2 id="launchPage__Info__2">I wish you luck. Are you ready to relive this Myth?</h2>
+            <div id="launchPage__Text">
+                <h1 id="launchPage__Title">Welcome to a choose your own adventure based on the story of Jason and Medea in Greek Mythology!</h1>
+                <div id="launchPage__Info">
+                    <h2 id="launchPage__Info__1">Throughout this adventure you will be asked to make choices that Jason and Medea would of had to make in the Myths. Are you going to make the same choices as them or are you going to take your own path?</h2>
+                    <h2 id="launchPage__Info__2">I wish you luck. Are you ready to relive this Myth?</h2>
+                </div>
+                <button id="launchPage__StartButton" onclick="hideLaunchPage()">I AM READY!</button>
             </div>
-            <button id="launchPage__StartButton" onclick="hideLaunchPage()">I AM READY!</button>
         </div>
         <!-- Loading Screen -->
         <div id="loadingScreen" class="hidden">
@@ -34,52 +36,62 @@
         <!-- Story Stuff -->
         <div id="part__ID" class="hidden">part_1</div>
         <div id="story" class="hidden">
-            <div class = "story">>
-                <p id="story__Stuff"></p>
+            <div id="story__Main">
+                <div class = "story">>
+                    <p id="story__Stuff"></p>
+                </div>
+                <img id="story__Scroll" src="Images/scroll.png">
+                <h1 id="part__Title"></h1>
+                <div id="story__Choose" class="hidden">
+                    <button class="story__Button" id="story__OptionOne" type="button" onclick="setOption(1)">Option 1</button>
+                    <button class="story__Button" id="story__OptionTwo" type="button" onclick="setOption(2)">Option 2</button>
+                    <button class="story__Button" id="story__OptionThree" type="button" onclick="setOption(3)">Option 3</button>
+                    <button class="story__Button" id="story__OptionFour" type="button" onclick="setOption(4)">Option 4</button>
+                </div>
+                <!-- Choosing the Argonauts -->
+                <div id="chooseArgonauts" class="hidden">
+                    <div>
+                    <input type="checkbox" class="chooseArgonauts__Boxes" id="box1" name="heracles">
+                    <label for="heracles" class="chooseArgonauts__Labels">Heracles</label>
+                    </div><div>
+                    <input type="checkbox" class="chooseArgonauts__Boxes" id="box2" name="orpheus">
+                    <label for="orpheus" class="chooseArgonauts__Labels" >Orpheus</label>
+                    </div><div>
+                    <input type="checkbox" class="chooseArgonauts__Boxes" id="box3" name="calais">
+                    <label for="calais" class="chooseArgonauts__Labels">Calais</label>
+                    </div><div>
+                    <input type="checkbox" class="chooseArgonauts__Boxes" id="box4" name="zetes">
+                    <label for="zetes" class="chooseArgonauts__Labels">Zetes</label>
+                    </div><div>
+                    <input type="checkbox" class="chooseArgonauts__Boxes" id="box5" name="daedalus">
+                    <label for="daedalus" class="chooseArgonauts__Labels">Daedalus</label>
+                    </div><div>
+                    <input type="checkbox" class="chooseArgonauts__Boxes" id="box6" name="6">
+                    <label for="6" class="chooseArgonauts__Labels">6</label>
+                    </div><div>
+                    <input type="checkbox" class="chooseArgonauts__Boxes" id="box7" name="7">
+                    <label for="7" class="chooseArgonauts__Labels">7</label>
+                    </div><div>
+                    <input type="checkbox" class="chooseArgonauts__Boxes" id="box8" name="8">
+                    <label for="8" class="chooseArgonauts__Labels">8</label>
+                    </div><div>
+                    <input type="checkbox" class="chooseArgonauts__Boxes" id="box9" name="9">
+                    <label for="9" class="chooseArgonauts__Labels">9</label>
+                    </div><div>
+                    <input type="checkbox" class='chooseArgonauts__Boxes' id="box10" name="10">
+                    <label class="chooseArgonauts__Labels" for="10">10</label>
+                    </div><div>
+                    <button id="argonautsSubmit" type="button" onclick="argonautsSubmitted()">Submit</button>
+                        </div>
+                </div>
             </div>
-            <img id="story__Scroll" src="Images/scroll.png">
-            <h1 id="part__Title"></h1>
-            <div id="story__Choose" class="hidden">
-                <button class="story__Button" id="story__OptionOne" type="button" onclick="setOption(1)">Option 1</button>
-                <button class="story__Button" id="story__OptionTwo" type="button" onclick="setOption(2)">Option 2</button>
-                <button class="story__Button" id="story__OptionThree" type="button" onclick="setOption(3)">Option 3</button>
-                <button class="story__Button" id="story__OptionFour" type="button" onclick="setOption(4)">Option 4</button>
-            </div>
-            <!-- Choosing the Argonauts -->
-            <div id="chooseArgonauts" class="hidden">
-                <div>
-                <input type="checkbox" class="chooseArgonauts__Boxes" id="box1" name="heracles">
-                <label for="heracles" class="chooseArgonauts__Labels">Heracles</label>
-                </div><div>
-                <input type="checkbox" class="chooseArgonauts__Boxes" id="box2" name="orpheus">
-                <label for="orpheus" class="chooseArgonauts__Labels" >Orpheus</label>
-                </div><div>
-                <input type="checkbox" class="chooseArgonauts__Boxes" id="box3" name="calais">
-                <label for="calais" class="chooseArgonauts__Labels">Calais</label>
-                </div><div>
-                <input type="checkbox" class="chooseArgonauts__Boxes" id="box4" name="zetes">
-                <label for="zetes" class="chooseArgonauts__Labels">Zetes</label>
-                </div><div>
-                <input type="checkbox" class="chooseArgonauts__Boxes" id="box5" name="daedalus">
-                <label for="daedalus" class="chooseArgonauts__Labels">Daedalus</label>
-                </div><div>
-                <input type="checkbox" class="chooseArgonauts__Boxes" id="box6" name="6">
-                <label for="6" class="chooseArgonauts__Labels">6</label>
-                </div><div>
-                <input type="checkbox" class="chooseArgonauts__Boxes" id="box7" name="7">
-                <label for="7" class="chooseArgonauts__Labels">7</label>
-                </div><div>
-                <input type="checkbox" class="chooseArgonauts__Boxes" id="box8" name="8">
-                <label for="8" class="chooseArgonauts__Labels">8</label>
-                </div><div>
-                <input type="checkbox" class="chooseArgonauts__Boxes" id="box9" name="9">
-                <label for="9" class="chooseArgonauts__Labels">9</label>
-                </div><div>
-                <input type="checkbox" class='chooseArgonauts__Boxes' id="box10" name="10">
-                <label class="chooseArgonauts__Labels" for="10">10</label>
-                </div><div>
-                <button id="argonautsSubmit" type="button" onclick="argonautsSubmitted()">Submit</button>
-                    </div>
+            <!-- CPS Test -->
+            <div id="cpsTest" class="hidden">
+                <div id="clicks">0</div>
+                <div id="cps" class="hidden">0</div>
+                <div id="CPSShade"></div>
+                <button type="button" id="cps__Start" onclick="startCPSTest()">Click to start test</button>  
+                <button type="button" id="cps__Test" onclick="CPSTest()" class="hidden"></button>
             </div>
         </div>
     </body>
