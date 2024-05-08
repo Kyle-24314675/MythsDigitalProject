@@ -24,7 +24,7 @@ async function loadingBar() {
         }
     };
     // DW this definetly does something. dont look too deep into it
-    //await sleep(3000);
+    await sleep(3000);
     
 
     document.getElementById('loadingScreen').classList.add('hidden')//style.cssText = "display: none; visibility: hidden;";
