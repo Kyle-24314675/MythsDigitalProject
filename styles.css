@@ -14,7 +14,9 @@
     font-size: 80px;
 }
 
-
+.hidden {
+    display: none;
+}
 
 /* --- Launch Page --- */
 #launchPage {
@@ -112,8 +114,6 @@
     font-size: 40px;
 }
 
-
-
 /* --- Story --- */
 #story {
     margin: 120px 0px 0px 35px;
@@ -123,13 +123,13 @@
     position: absolute;
     z-index: 4;
     margin-top: -100px;
-    margin-left: 62%;
+    margin-left: 58%;
     margin-right: 1%;
     font-size: 60px;
     background-color: transparent;
     font-family: 'Dancing Script';
     padding-left: 6%;
-    padding-right: 6%;
+    padding-right: 3%;
 }
 
     /* Reading */
@@ -183,10 +183,30 @@
     background-color: rgb(252, 239, 220);
 }
 
-.hidden {
-    display: none;
+.story__Button__Disable{
+    z-index: 3;
+    width: 450px;
+    margin-left: 0px;
+    margin-bottom: 40px;
+    padding: 2px 0px;
+    font-size: 24px;
+    border-color: black;
+    border: inset;
+    background-color: rgb(217, 207, 193);
 }
 
+.story__Button__Disable{
+    cursor:not-allowed;
+    background-color: rgb(252, 239, 220);
+}
+
+
+    /* Choosing Argonauts */
 #chooseArgonauts{
-    margin: 0 0 0 80%
+    z-index: 3;
+    margin: 0% 0 -30% 65%;
+    position: absolute;
+}
+.chooseArgonauts__Labels{
+    font-size: 290%;
 }
