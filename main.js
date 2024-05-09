@@ -51,11 +51,18 @@ function control(){
         
             const optionElement = document.getElementById('story__Option' + optionNames[i]);
             if (document.getElementById('cps').innerHTML <= 7 && currentPart == "part_1-1-1-1-1-1-1-2-2-1-1" && i == 0){
-                console.log(options[i])
+                //console.log(options[i])
                 options[i] = '*' + options[i]
-                console.log(options[i])
+                //console.log(options[i])
                 optionElement.innerHTML = options[i]
-            }else{
+            }else if (currentPart == "part_1-1-1-1-1" && (document.getElementById('zetes').innerHTML == 'false'|| document.getElementById('calais').innerHTML === 'false') && i == 0){ //|| document.getElementById('calais').innerhtml) === 'false'){
+                options[i] = '*' + options[i];
+                console.log('zetes/calais')
+                console.log(options[i])
+                optionElement.innerHTML = options[i];
+            }
+            
+            else{
             optionElement.innerHTML = options[i]
             }
 
@@ -85,6 +92,7 @@ function control(){
     });
 };
 async function setOption(option) {
+    document.getElementById('story__Choose').classList.remove('hidden')
     let currentPart = document.getElementById('part__ID').innerHTML; 
     let nextPart = currentPart + "-" + option;
     console.log(nextPart)
@@ -124,13 +132,18 @@ async function checkPart(currentPart){
         document.getElementById('part__ID').innerHTML = "part_1-1-1-1-1-1-1-2-2"
     }else if(currentPart == "part_1-1-1-1-1-1-1-2-2-2"){
         document.getElementById('part__ID').innerHTML = 'part_1-1-1-1-1-1-1-2-2-1'
+    }else if(currentPart == "part_1-1-1-1-1"){
+        argonautsQuests()
     }
     
     else{
-        return 1
+        return
     }
-
 }
+
+
+
+// --- Argonauts --- //
 
 async function chooseArgonauts(){
     document.getElementById("story__Choose").classList.add('hidden')
@@ -138,22 +151,40 @@ async function chooseArgonauts(){
 }
 
 async function argonautsSubmitted(){
-    document.getElementById("chooseArgonauts").classList.add('hidden')
-    const chosenArgonauts = [0,0,0,0,0,0,0,0,0,0]
+    document.getElementById("chooseArgonauts").classList.add('hidden');
+
+    const chosenArgonauts = [0,0,0,0,0,0,0,0,0,0];
+
     for (let i = 0; i < 10; i++){
-        chosenArgonauts[i] = await document.getElementById(`box${i + 1}`).checked
+        chosenArgonauts[i] = await document.getElementById(`box${i + 1}`).checked;
+    };
+
+    console.table(chosenArgonauts);
+
+    document.getElementById('heracles').innerHTML = chosenArgonauts[0];
+    document.getElementById('orpheus').innerHTML = chosenArgonauts[1];
+    document.getElementById('calais').innerHTML = chosenArgonauts[2];
+    document.getElementById('zetes').innerHTML = chosenArgonauts[3];
+
+    amount = chosenArgonauts.filter(Boolean).length;
+    if (amount > 4){
+        setOption('3');
+    }else{
+    setOption('1');
+}}
+
+async function argonautsQuests(){
+    if (document.getElementById('heracles').innerHTML === 'false'){
+        document.getElementById('part__Title').innerHTML = "No-one Strong Enough";
+        document.getElementById('story__Stuff').innerHTML = "The argonauts set sail to see the world and experience new things, but none could know the life changing events this journey would bring them, and that some of them would not return. On their journey they crossed hellespont and landed at Propontis to re-supply. The king Cyzicus welcomed them with open arms but forgot to warn them of the six armed beast, Gegenees, that inhabited to area. The Argo was attacked while many of the argonauts were away resupplying and the argonauts left to defend were not strong enough to repel them. The argo was destroyed and their journey came to an end.";
+        document.getElementById('story__Choose').classList.add('hidden');
     }
-    console.table(chosenArgonauts)
-    setOption('1')
+    else{
+        return;
+    }//)};
 }
 
-function argonautsQuests(chosenArgonauts){
-    if (chosenArgonauts[0] = False){
-        heraclesNot = fetch("Stories/Argonauts/heraclesNot.txt")
-        document.getElementById('part__Title') = heraclesNot[0]
-        document.getElementById('story__Stuff') = heraclesNot[1]
-    } 
-}
+
 
 // --- CPS Test --- //
 
@@ -190,7 +221,7 @@ function checkCPS(){
     document.getElementById('cpsTest').classList.add('hidden')
     document.getElementById('collumns').classList.add('hidden')
     document.getElementById('cps').innerHTML = cps
-    if (cps >= 7){
+    if (cps >= 5){
         document.getElementById('story__Main').classList.remove('hidden')
     }else{
         console.log('too slow')
