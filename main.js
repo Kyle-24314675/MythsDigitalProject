@@ -173,6 +173,7 @@ async function argonautsSubmitted(){
     setOption('1');
 }}
 
+
 async function argonautsQuests(){
     if (document.getElementById('heracles').innerHTML === 'false'){
         document.getElementById('part__Title').innerHTML = "No-one Strong Enough";
