@@ -1,4 +1,4 @@
-  function sleep(ms) {
+function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 };
 
@@ -39,6 +39,7 @@ function control(){
     let currentPart = document.getElementById('part__ID').innerHTML;
     fetch("Stories/" + currentPart + '.txt')
     .then(async (response) => {
+        endScreen = false
         const text = await response.text();
         const currentPartArray = text.split("|");
 
@@ -84,6 +85,30 @@ function control(){
             
         }
 
+        // --- End Screen --- //
+
+        if (currentPartArray.length === 7){
+            let endScreen = currentPartArray[6]
+            document.getElementById("story__EndScreen").classList.remove('hidden')
+            if (endScreen === "jasonDeath"){
+                document.getElementById("story__EndScreen__Img").classList.add('jasonDeath')
+            }else if (endScreen === "happy"){
+                document.getElementById("story__EndScreen__Img").classList.add('happy')
+            }else if (endScreen === "boring"){
+                document.getElementById("story__EndScreen__Img").classList.add('boring')
+            }else if (endScreen === "god"){
+                document.getElementById("story__EndScreen__Img").classList.add("god")
+            }else if (endScreen === "mid"){
+                document.getElementById("story__EndScreen__Img").classList.add("mid")
+            }else if (endScreen === "medeaBoring"){
+                document.getElementById("story__EndScreen__Button").classList.add("hidden")
+                document.getElementById("story__EndScreen__MainStory").classList.remove("hidden")
+            }else if (endScreen === "accurate"){
+                document.getElementById("story__EndScreen__Accurate").classList.remove('hidden')
+                document.getElementById("story__EndScreen__Img").classList.add('hidden');
+
+            }
+        }
         //console.log(currentPartArray[0])
         document.getElementById('part__Title').innerHTML = currentPartArray[0];
         document.getElementById('story__Stuff').innerHTML = currentPartArray[5];
@@ -179,6 +204,8 @@ async function argonautsQuests(){
         document.getElementById('part__Title').innerHTML = "No-one Strong Enough";
         document.getElementById('story__Stuff').innerHTML = "The argonauts set sail to see the world and experience new things, but none could know the life changing events this journey would bring them, and that some of them would not return. On their journey they crossed hellespont and landed at Propontis to re-supply. The king Cyzicus welcomed them with open arms but forgot to warn them of the six armed beast, Gegenees, that inhabited to area. The Argo was attacked while many of the argonauts were away resupplying and the argonauts left to defend were not strong enough to repel them. The argo was destroyed and their journey came to an end.";
         document.getElementById('story__Choose').classList.add('hidden');
+        document.getElementById("story__EndScreen").classList.remove('hidden');
+        document.getElementById("story__EndScreen__Img").classList.add('jasonDeath')
     }
     else{
         return;
@@ -231,4 +258,29 @@ function checkCPS(){
         setOption(3)
     }
 
+}
+
+// --- End Screen --- //
+function seeStory(){
+    document.getElementById("medeaMain").innerHTML = "run"
+    document.getElementById('story__Choose').classList.remove('hidden')
+    document.getElementById('part__ID').innerHTML = "part_1-1-1-1-1-1-1"
+    let currentPart = document.getElementById('part__ID').innerHTML; 
+    let nextPart = currentPart + "-1";
+    console.log(nextPart)
+    
+    // CPS Test
+    if (nextPart === 'part_1-1-1-1-1-1-1-2-2-1'){
+        primeCPSTest()
+    }
+
+    fetch("Stories/" + nextPart + '.txt').then(async (response) => {
+        const text = await response.text();
+        //console.log(text)
+        if (text.includes(`Cannot GET /Stories/${nextPart}`)) return control()
+
+        document.getElementById('part__ID').innerHTML = nextPart
+    
+        control(currentPart);
+    })
 }

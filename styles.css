@@ -257,3 +257,57 @@
     margin-left:-50%;
     margin-top:-50%;
 }
+
+/* --- End Screens --- */
+
+#story__EndScreen__Button{
+    position:absolute;
+    z-index: 3;
+    font-size: 50px;
+    background-color: red;
+    color:yellow;
+    border:none;
+    border-radius: 15px;
+    height:55px;
+    width: 300px;
+    margin: 33% 0 0 -25%;
+}
+
+#story__EndScreen__Button:hover{
+    background-color:blue;
+    color:green;
+    cursor: pointer;
+}
+.jasonDeath {
+    content: url('Images/EndScreen/scull.png');
+    margin: 0px 0px 0px 65%;
+}
+
+.happy {
+    content: url('Images/EndScreen/heart.png');
+    margin: 0px 0px 0px 65%;
+}
+
+.boring{
+    content: url('Images/EndScreen/x.png');
+    height: 450px;
+    margin: 0px 0px 0px 68%;
+}
+
+.god {
+    content: url('Images/EndScreen/god.png');
+    margin: 0px 0px 0px 64%;
+}
+
+.mid {
+    content: url('Images/EndScreen/mid.png');
+    height: 450px;
+    margin: 0px 0px 0px 64%;
+}
+
+#story__EndScreen__Accurate{
+    margin: 7% 0 0 62%;
+    position:absolute;
+    z-index:3;
+    font-size: 30px;
+}
