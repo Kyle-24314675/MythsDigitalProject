@@ -1,3 +1,5 @@
+
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 };
@@ -107,6 +109,7 @@ function control(){
             }else if (endScreen === "medeaBoring"){
                 document.getElementById("story__EndScreen__Button").classList.add("hidden")
                 document.getElementById("story__EndScreen__MainStory").classList.remove("hidden")
+                document.getElementById("story__EndScreen__Img").classList.add('happy')
                 console.log("Medea Boring")
             }else if (endScreen === "accurate"){
                 document.getElementById("story__EndScreen__Accurate").classList.remove('hidden')
@@ -273,11 +276,6 @@ function seeStory(){
     let currentPart = document.getElementById('part__ID').innerHTML; 
     let nextPart = currentPart + "-1";
     console.log(nextPart)
-    
-    // CPS Test
-    if (nextPart === 'part_1-1-1-1-1-1-1-2-2-1'){
-        primeCPSTest()
-    }
 
     fetch("Stories/" + nextPart + '.txt').then(async (response) => {
         const text = await response.text();
