@@ -285,6 +285,7 @@ function seeStory(){
         document.getElementById('part__ID').innerHTML = nextPart
     
         document.getElementById("story__EndScreen__MainStory").classList.add("hidden")
+        document.getElementById("story__EndScreen__Img").classList.add("hidden")
         control(currentPart);
     })
 }
