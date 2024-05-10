@@ -311,3 +311,8 @@
     z-index:3;
     font-size: 30px;
 }
+
+#story__EndScreen__MainStory{
+    position:absolute;
+    margin: 0 0 0 80%;
+}

@@ -61,13 +61,17 @@ function control(){
                 console.log('zetes/calais')
                 console.log(options[i])
                 optionElement.innerHTML = options[i];
+            }else if (document.getElementById("medeaMain").innerHTML === "run" && i != 0){
+                console.log("if statement running")
+                options[i] = '*' + options[i]; 
+                optionElement.innerHTML = options[i]
             }
             
             else{
             optionElement.innerHTML = options[i]
             }
 
-            if (options[i] == "Zero") {
+            if (options[i] == "Zero" || options[i] === "*Zero") {
                 optionElement.classList.add('hidden');
             }else if (options[i].startsWith("*") === true){
                 optionElement.classList.remove('hidden')
@@ -103,6 +107,7 @@ function control(){
             }else if (endScreen === "medeaBoring"){
                 document.getElementById("story__EndScreen__Button").classList.add("hidden")
                 document.getElementById("story__EndScreen__MainStory").classList.remove("hidden")
+                console.log("Medea Boring")
             }else if (endScreen === "accurate"){
                 document.getElementById("story__EndScreen__Accurate").classList.remove('hidden')
                 document.getElementById("story__EndScreen__Img").classList.add('hidden');
@@ -281,6 +286,7 @@ function seeStory(){
 
         document.getElementById('part__ID').innerHTML = nextPart
     
+        document.getElementById("story__EndScreen__MainStory").classList.add("hidden")
         control(currentPart);
     })
 }
